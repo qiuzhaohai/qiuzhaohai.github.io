@@ -130,18 +130,12 @@
 <p>从源代码安装<br>有人觉得从源码安装 Git 更实用，因为你能得到最新的版本。 二进制安装程序倾向于有一些滞后，当然近几年 Git 已经成熟，这个差异不再显著。</p>
 <p>如果你想从源码安装 Git，需要安装 Git 依赖的库：curl、zlib、openssl、expat，还有 libiconv。 如果你的系统上有 yum （如 Fedora）或者 apt-get（如基于 Debian 的系统），可以使用以下命令之一来安装最小化的依赖包来编译和安装 Git 的二进制版：</p>
 <p><code>$ sudo yum install curl-devel expat-devel gettext-devel \
-    openssl-devel zlib-devel
-  $ sudo apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \
+    openssl-devel zlib-devel</code><br><code>$ sudo apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \
     libz-dev libssl-dev</code><br>为了能够添加更多格式的文档（如 doc, html, info），你需要安装以下的依赖包：</p>
 <p><code>$ sudo yum install asciidoc xmlto docbook2x
   $ sudo apt-get install asciidoc xmlto docbook2x</code><br>当你安装好所有的必要依赖，你可以继续从几个地方来取得最新发布版本的 tar 包。 你可以从 Kernel.org 网站获取，网址为 <a href="https://www.kernel.org/pub/software/scm/git，或从" target="_blank" rel="noopener">https://www.kernel.org/pub/software/scm/git，或从</a> GitHub 网站上的镜像来获得，网址为 <a href="https://github.com/git/git/releases。" target="_blank" rel="noopener">https://github.com/git/git/releases。</a> 通常在 GitHub 上的是最新版本，但 kernel.org 上包含有文件下载签名，如果你想验证下载正确性的话会用到。</p>
 <p>接着，编译并安装：</p>
-<p><code>$ tar -zxf git-2.0.0.tar.gz
-  $ cd git-2.0.0
-  $ make configure
-  $ ./configure --prefix=/usr
-  $ make all doc info
-  $ sudo make install install-doc install-html install-info</code><br>完成后，你可以使用 Git 来获取 Git 的升级：</p>
+<p>  <code>$ tar -zxf git-2.0.0.tar.gz</code><br>  <code>$ cd git-2.0.0</code><br>  <code>$ make configure</code><br>  <code>$ ./configure --prefix=/usr</code><br>  <code>$ make all doc info</code><br>  <code>$ sudo make install install-doc install-html install-info</code><br>完成后，你可以使用 Git 来获取 Git 的升级：</p>
 <p>  $ git clone git://git.kernel.org/pub/scm/git/git.git</p>
 <h2 id="Git学习地址"><a href="#Git学习地址" class="headerlink" title="Git学习地址"></a>Git学习地址</h2><p>  <a href="https://www.git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%91%BD%E4%BB%A4%E8%A1%8C" target="_blank" rel="noopener">https://www.git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%91%BD%E4%BB%A4%E8%A1%8C</a></p>
 
