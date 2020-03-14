@@ -134,7 +134,7 @@
 <h4 id="5-合并分支"><a href="#5-合并分支" class="headerlink" title="5. 合并分支"></a>5. 合并分支</h4><p> <code>git merge dev</code></p>
 <h4 id="6-查看当前本地暂存区状态"><a href="#6-查看当前本地暂存区状态" class="headerlink" title="6. 查看当前本地暂存区状态"></a>6. 查看当前本地暂存区状态</h4><p> <code>git status</code></p>
 <h4 id="7-查看日志"><a href="#7-查看日志" class="headerlink" title="7. 查看日志"></a>7. 查看日志</h4><p> <code>git log</code></p>
-
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//本地蓝牙设备状态更新代理</span></span><br><span class="line">-(<span class="keyword">void</span>)centralManagerDidUpdateState:(CBCentralManager *)central</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">switch</span> (central.state)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">case</span> CBCentralManagerStatePoweredOff:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> CBCentralManagerStatePoweredOn:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
   </article>
@@ -183,6 +183,21 @@
       </div>
     </div>
   
+
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <div id="gitalk-container"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+            clientID: 'e1caae05d2c2c85c0ef6',
+            clientSecret: '9c8a176eafc44d3a9f5f2df8f0c8d2dbc5b9a8fa',
+            id: window.location.pathname,
+            repo: 'QiuZH&#39;s',
+            owner: 'QiuZH&#39;s',
+            admin: 'qiuzhaohai'
+        })
+        gitalk.render('gitalk-container')
+    </script>
 
 
 
