@@ -131,21 +131,16 @@
 </ol>
 <p> <strong>最佳匹配的函数</strong>就是最终调用的函数。最佳匹配最基本的思想是认为，<strong>实参类型越接近，它们就越匹配</strong>。需满足</p>
 <ol>
-<li><p>其每个实参匹配都不劣于其他可行函数需要的匹配。</p>
-</li>
-<li><p>至少有一个实参的匹配优于其他可行函数的匹配。</p>
-<h3 id="1-最佳匹配原则"><a href="#1-最佳匹配原则" class="headerlink" title="1.最佳匹配原则"></a>1.最佳匹配原则</h3><p>最佳匹配优先级按以下顺序：</p>
-</li>
-<li><p><strong>精确匹配</strong>，包括实参类型和形参类型相同，实参从数组或函数转换成对应的指针类型，向实参添加顶层const或从实参删除顶层const。</p>
-</li>
-<li><p><strong>const转换</strong>，指的是通过加const限定词，能够与可行函数精确匹配。</p>
-</li>
-<li><p><strong>类型提升</strong>，简单说明类型提升规则：float将提升到double；char、short和相应的signed、unsigned类型将提升到int。</p>
-</li>
-<li><p><strong>算数类型转换（标准转换）</strong>，short int和float，double等之间的转换，都是算术类型之间的转换。</p>
-</li>
-<li><p><strong>类类型转换</strong>，如父子类之间的转换。</p>
-</li>
+<li>其每个实参匹配都不劣于其他可行函数需要的匹配。</li>
+<li>至少有一个实参的匹配优于其他可行函数的匹配。</li>
+</ol>
+<h3 id="1-最佳匹配原则"><a href="#1-最佳匹配原则" class="headerlink" title="1.最佳匹配原则"></a>1.最佳匹配原则</h3><p> 最佳匹配优先级按以下顺序：</p>
+<ol>
+<li><strong>精确匹配</strong>，包括实参类型和形参类型相同，实参从数组或函数转换成对应的指针类型，向实参添加顶层const或从实参删除顶层const。</li>
+<li><strong>const转换</strong>，指的是通过加const限定词，能够与可行函数精确匹配。</li>
+<li><strong>类型提升</strong>，简单说明类型提升规则：float将提升到double；char、short和相应的signed、unsigned类型将提升到int。</li>
+<li><strong>算数类型转换（标准转换）</strong>，short int和float，double等之间的转换，都是算术类型之间的转换。</li>
+<li><strong>类类型转换</strong>，如父子类之间的转换。</li>
 </ol>
 <h3 id="2-二义性"><a href="#2-二义性" class="headerlink" title="2.二义性"></a>2.二义性</h3><p> 当匹配的函数有多个可行性函数，但却不满足最佳匹配原则，会产生<strong>二义性</strong>。</p>
 <h2 id="四、注意"><a href="#四、注意" class="headerlink" title="四、注意"></a>四、注意</h2><ol>
