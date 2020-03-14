@@ -120,9 +120,9 @@
       <h1 id="函数重载的匹配方式"><a href="#函数重载的匹配方式" class="headerlink" title="函数重载的匹配方式"></a>函数重载的匹配方式</h1><h2 id="一、确定候选函数"><a href="#一、确定候选函数" class="headerlink" title="一、确定候选函数"></a>一、确定候选函数</h2><p><strong>候选函数</strong>需满足：<br> 1.和被调用的函数同名。<br> 2.其声明在调用点可见。</p>
 <h2 id="二、确定可行函数"><a href="#二、确定可行函数" class="headerlink" title="二、确定可行函数"></a>二、确定可行函数</h2><p><strong>可行函数</strong>指的是本次调用传入的实参能够被候选函数使用。需满足：<br> 1.形参和实参数相同。<br> 2.每个实参的类型和对应形参类型相同或者能够转换成形参的类型。</p>
 <h2 id="三、确定最佳匹配函数"><a href="#三、确定最佳匹配函数" class="headerlink" title="三、确定最佳匹配函数"></a>三、确定最佳匹配函数</h2><p> <strong>最佳匹配的函数</strong>就是最终调用的函数。最佳匹配最基本的思想是认为，<strong>实参类型越接近，它们就越匹配</strong>。需满足<br> 1.其每个实参匹配都不劣于其他可行函数需要的匹配。<br> 2.至少有一个实参的匹配优于其他可行函数的匹配。</p>
-<h2 id="最佳匹配原则"><a href="#最佳匹配原则" class="headerlink" title="最佳匹配原则"></a>最佳匹配原则</h2><p> 最佳匹配优先级按以下顺序：<br> 1.<strong>精确匹配</strong>，包括实参类型和形参类型相同，实参从数组或函数转换成对应的指针类型，向实参添加顶层const或从实参删除顶层const。<br> 2.<strong>const转换</strong>，指的是通过加const限定词，能够与可行函数精确匹配。<br> 3.<strong>类型提升</strong>，简单说明类型提升规则：float将提升到double；char、short和相应的signed、unsigned类型将提升到int。<br> 4.<strong>算数类型转换（标准转换）</strong>，short int和float，double等之间的转换，都是算术类型之间的转换。<br> 5.<strong>类类型转换</strong>，如父子类之间的转换。</p>
-<h2 id="二义性"><a href="#二义性" class="headerlink" title="二义性"></a>二义性</h2><p> 当匹配的函数有多个可行性函数，但却不满足最佳匹配原则，会产生<strong>二义性</strong>。</p>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p> 1.调用重载函数时，应当避免强制类型转换。</p>
+<h3 id="1-最佳匹配原则"><a href="#1-最佳匹配原则" class="headerlink" title="1.最佳匹配原则"></a>1.最佳匹配原则</h3><p> 最佳匹配优先级按以下顺序：<br> 1.<strong>精确匹配</strong>，包括实参类型和形参类型相同，实参从数组或函数转换成对应的指针类型，向实参添加顶层const或从实参删除顶层const。<br> 2.<strong>const转换</strong>，指的是通过加const限定词，能够与可行函数精确匹配。<br> 3.<strong>类型提升</strong>，简单说明类型提升规则：float将提升到double；char、short和相应的signed、unsigned类型将提升到int。<br> 4.<strong>算数类型转换（标准转换）</strong>，short int和float，double等之间的转换，都是算术类型之间的转换。<br> 5.<strong>类类型转换</strong>，如父子类之间的转换。</p>
+<h3 id="2-二义性"><a href="#2-二义性" class="headerlink" title="2.二义性"></a>2.二义性</h3><p> 当匹配的函数有多个可行性函数，但却不满足最佳匹配原则，会产生<strong>二义性</strong>。</p>
+<h2 id="四、注意"><a href="#四、注意" class="headerlink" title="四、注意"></a>四、注意</h2><p> 1.调用重载函数时，应当避免强制类型转换。</p>
 
     </div>
 
@@ -131,7 +131,7 @@
     
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数重载的匹配方式"><span class="toc-text">函数重载的匹配方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、确定候选函数"><span class="toc-text">一、确定候选函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、确定可行函数"><span class="toc-text">二、确定可行函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、确定最佳匹配函数"><span class="toc-text">三、确定最佳匹配函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最佳匹配原则"><span class="toc-text">最佳匹配原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二义性"><span class="toc-text">二义性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意"><span class="toc-text">注意</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数重载的匹配方式"><span class="toc-text">函数重载的匹配方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、确定候选函数"><span class="toc-text">一、确定候选函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、确定可行函数"><span class="toc-text">二、确定可行函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、确定最佳匹配函数"><span class="toc-text">三、确定最佳匹配函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-最佳匹配原则"><span class="toc-text">1.最佳匹配原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-二义性"><span class="toc-text">2.二义性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、注意"><span class="toc-text">四、注意</span></a></li></ol></li></ol>
   </div>
 
 
