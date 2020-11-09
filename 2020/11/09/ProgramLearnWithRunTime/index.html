@@ -113,15 +113,17 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 1 分钟</span>
+      <span class="read">阅读耗时 2 分钟</span>
     </header>
 
     <div class="post-content">
-      <h1 id="Runtime-详解"><a href="#Runtime-详解" class="headerlink" title="Runtime 详解"></a>Runtime 详解</h1><h2 id="一、什么是Runtime？"><a href="#一、什么是Runtime？" class="headerlink" title="一、什么是Runtime？"></a>一、什么是Runtime？</h2><p>将源代码转换成可执行文件的程序，通常要经过三个步骤：</p>
+      <h1 id="Runtime-详解"><a href="#Runtime-详解" class="headerlink" title="Runtime 详解"></a>Runtime 详解</h1><h2 id="一、什么是Runtime"><a href="#一、什么是Runtime" class="headerlink" title="一、什么是Runtime"></a>一、什么是Runtime</h2><p>Objective-C 语言是一门动态语言，它把一些决定性的工作从编译阶段、链接阶段推迟到运行时阶段，实现该机制的基础就是 runtime（又叫作<a href="https://baike.baidu.com/item/%E8%BF%90%E8%A1%8C%E6%97%B6/3335184?fr=aladdin" target="_blank" rel="noopener">运行时</a>）。</p>
+<h3 id="静态语言和动态语言"><a href="#静态语言和动态语言" class="headerlink" title="静态语言和动态语言"></a>静态语言和动态语言</h3><p>静态语言：在编译阶段就已确定所有变量的数据类型，同时也确定要调用的函数，以及函数的实现。常见的静态语言，如：C/C++、Java、C#等。</p>
+<p>而 Objective-C 是一门动态语言。在编译阶段并不知道变量的具体数据类型，也不知道所真正调用那个函数，只有在运行时才检查变量数据类型，同时在运行时才会根据函数名查找要调用的具体函数，这样在程序没运行时候，我们并不知道调用一个方法具体会发生什么。</p>
 <ul>
-<li>编译 -&gt; 链接 -&gt; 运行</li>
+<li></li>
 </ul>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html" target="_blank" rel="noopener">Objective-C Runtime Programming Guide</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html" target="_blank" rel="noopener">Objective-C Runtime Programming Guide</a></p>
 <p><a href="https://developer.apple.com/documentation/objectivec/objective-c_runtime?language=objc" target="_blank" rel="noopener">Objective-C Runtime Reference</a></p>
 
     </div>
@@ -131,7 +133,7 @@
     
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Runtime-详解"><span class="toc-text">Runtime 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、什么是Runtime？"><span class="toc-text">一、什么是Runtime？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Runtime-详解"><span class="toc-text">Runtime 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、什么是Runtime"><span class="toc-text">一、什么是Runtime</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态语言和动态语言"><span class="toc-text">静态语言和动态语言</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
   </div>
 
 
