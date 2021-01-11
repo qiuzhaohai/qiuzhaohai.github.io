@@ -113,14 +113,35 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 2 分钟</span>
+      <span class="read">阅读耗时 4 分钟</span>
     </header>
 
     <div class="post-content">
-      <h1 id="Runtime-详解"><a href="#Runtime-详解" class="headerlink" title="Runtime 详解"></a>Runtime 详解</h1><h2 id="一、什么是Runtime"><a href="#一、什么是Runtime" class="headerlink" title="一、什么是Runtime"></a>一、什么是Runtime</h2><p>Objective-C 语言是一门动态语言，它把一些决定性的工作从编译阶段、链接阶段推迟到运行时阶段，实现该机制的基础就是 runtime（又叫作<a href="https://baike.baidu.com/item/%E8%BF%90%E8%A1%8C%E6%97%B6/3335184?fr=aladdin" target="_blank" rel="noopener">运行时</a>）。</p>
-<h3 id="静态语言和动态语言"><a href="#静态语言和动态语言" class="headerlink" title="静态语言和动态语言"></a>静态语言和动态语言</h3><p>静态语言：在编译阶段就已确定所有变量的数据类型，同时也确定要调用的函数，以及函数的实现。常见的静态语言，如：C/C++、Java、C#等。</p>
-<p>而 Objective-C 是一门动态语言。在编译阶段并不知道变量的具体数据类型，也不知道所真正调用那个函数，只有在运行时才检查变量数据类型，同时在运行时才会根据函数名查找要调用的具体函数，这样在程序没运行时候，我们并不知道调用一个方法具体会发生什么。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html" target="_blank" rel="noopener">Objective-C Runtime Programming Guide</a></p>
+      <h1 id="iOS-Runtime-详解"><a href="#iOS-Runtime-详解" class="headerlink" title="iOS Runtime 详解"></a>iOS Runtime 详解</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>Objective-C</code> 语言是一门<strong>动态语言</strong>。它把一些决策从<code>编译阶段</code>、<code>链接阶段</code>推迟到<code>运行时阶段</code>，实现该机制的基础就是 <a href="https://baike.baidu.com/item/%E8%BF%90%E8%A1%8C%E6%97%B6/3335184?fr=aladdin" target="_blank" rel="noopener">runtime</a>（又叫作运行时）。</p>
+<ul>
+<li>静态语言：在编译阶段就已确定所有变量的数据类型，同时也确定要调用的函数，以及函数的实现。常见的静态语言，如：<code>C/C++</code>、<code>Java</code>、<code>C#</code>等。</li>
+<li>动态语言：程序在运行时可以改变其结构。也就是说在运行时检查变量数据类型，同时在运行时才会根据函数名查找要调用的具体函数。如 <code>Objective-C</code>。</li>
+</ul>
+<h2 id="一、Runtime-是什么"><a href="#一、Runtime-是什么" class="headerlink" title="一、Runtime 是什么"></a>一、Runtime 是什么</h2><p><code>Runtime</code> 提供的接口基本都是 C 语言，源码由<code>C\C++\汇编</code>语言编写。Runtime API为 <code>Objective-C</code> 语言的动态属性提供支持，充当一种用于 <code>Objective-C</code> 语言的操作系统，使得该语言正常运转工作。</p>
+<h2 id="二、Runtime-的版本和平台"><a href="#二、Runtime-的版本和平台" class="headerlink" title="二、Runtime 的版本和平台"></a>二、Runtime 的版本和平台</h2><p>在不同平台上有不同版本的 <code>Objective-C Runtime</code>。</p>
+<h3 id="2-1-Versions"><a href="#2-1-Versions" class="headerlink" title="2.1 Versions"></a>2.1 Versions</h3><p><code>Objective-C</code>运行时有两个版本<code>modern（现代版本）</code>和<code>legacy（旧版本）</code>。现代版本是在 Objective-C 2.0 中引入的，其中包括许多新功能。旧版运行时的编程接口在 Objective-C 1.0 运行时参考中有所描述；<a href="https://developer.apple.com/documentation/objectivec/objective_c_runtime" target="_blank" rel="noopener">Objective-C Runtime Reference</a> 中描述了现代版本的运行时的编程接口。</p>
+<p>最值得注意的新功能是现代运行时中的实例变量是<code>non-fragile(非脆弱的)</code>：</p>
+<ul>
+<li><strong>在旧版运行时中，如果更改类中实例变量的布局，则必须重新编译从其继承的类。</strong></li>
+<li><strong>在现代运行时中，如果更改类中实例变量的布局，则不必重新编译从其继承的类。</strong></li>
+</ul>
+<p>另外，现代的运行时支持声明的属性的实例变量综合（请参见 <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html#//apple_ref/doc/uid/TP30001163" target="_blank" rel="noopener">The Objective-C Programming Language</a> 和 <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjectiveC/Chapters/ocProperties.html#//apple_ref/doc/uid/TP30001163-CH17" target="_blank" rel="noopener">Declared Properties</a>）</p>
+<h3 id="2-2-Platforms"><a href="#2-2-Platforms" class="headerlink" title="2.2 Platforms"></a>2.2 Platforms</h3><p>OS X v10.5及更高版本上的iPhone应用程序和64位程序使用现代版本的 Runtime。<br>其他程序（OS X桌面上的32位程序）使用运行时的旧版本。</p>
+<h2 id="三、isa-详解"><a href="#三、isa-详解" class="headerlink" title="三、isa 详解"></a>三、isa 详解</h2><p>学习 Runtime，必绕不开 Runtime 底层常用的数据结构，比如 isa 指针。</p>
+<ul>
+<li>在arm64架构之前，isa就是一个普通的指针，存储着Class、Meta-Class对象的内存地址；</li>
+<li>从arm64架构开始，对isa进行了优化，变成了一个共用体（union）结构，还使用位域来存储更多的信息。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct objc_object &#123;</span><br><span class="line">private:</span><br><span class="line">    isa_t isa;</span><br><span class="line">    public:</span><br><span class="line">      ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h3><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Introduction/Introduction.html" target="_blank" rel="noopener">Objective-C Runtime Programming Guide</a></p>
 <p><a href="https://developer.apple.com/documentation/objectivec/objective-c_runtime?language=objc" target="_blank" rel="noopener">Objective-C Runtime Reference</a></p>
 
     </div>
@@ -130,7 +151,7 @@
     
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Runtime-详解"><span class="toc-text">Runtime 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、什么是Runtime"><span class="toc-text">一、什么是Runtime</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态语言和动态语言"><span class="toc-text">静态语言和动态语言</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iOS-Runtime-详解"><span class="toc-text">iOS Runtime 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Runtime-是什么"><span class="toc-text">一、Runtime 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Runtime-的版本和平台"><span class="toc-text">二、Runtime 的版本和平台</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Versions"><span class="toc-text">2.1 Versions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-Platforms"><span class="toc-text">2.2 Platforms</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、isa-详解"><span class="toc-text">三、isa 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1"><span class="toc-text">3.1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li></ol>
   </div>
 
 
